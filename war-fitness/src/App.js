@@ -31,20 +31,19 @@ const App = () => {
   const handleSignup = () => {
     fire
       .auth()
-      .createUs(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .catch(err => {
         switch(err.code) {
+          case "auth/email-already-in-use":
           case "auth/invalid-email":
-          case "auth/user-disabled":
-          case "auth/user-not-found":
             setEmailError(err.message);
             break;
-          case "auth/wrong-password":
+          case "auth/weak-password":
             setPasswordError(err.message);
             break;
         }
       });
-  }
+  };
 
   return (
     <div className="App">
