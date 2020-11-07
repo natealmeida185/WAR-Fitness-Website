@@ -44,6 +44,10 @@ const App = () => {
         }
       });
   };
+  
+  const handleLogout = () => {
+    fire.auth().signOut();
+  }
 
   return (
     <div className="App">
