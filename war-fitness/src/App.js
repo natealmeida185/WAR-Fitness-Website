@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import fire from './fire';
+import Login from './Login';
+import Hero from './Hero';
 import './App.css';
 
 const App = () => {
@@ -10,7 +12,18 @@ const App = () => {
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
 
+  const clearInputs = () => {
+    setEmail("");
+    setPassword("");
+  }
+
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  }
+
   const handleLogin = () => {
+    clearErrors();
     fire
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -29,6 +42,7 @@ const App = () => {
   };
 
   const handleSignup = () => {
+    clearErrors();
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -49,9 +63,34 @@ const App = () => {
     fire.auth().signOut();
   }
 
+  const authListener = () => {
+    fire.auth().onAuthStateChanged(user => {
+      if(user) {
+        clearInputs();
+        setUser(user);
+      }
+      else {
+        setUser("");
+      }
+    })
+  };
+
+  useEffect(() => {
+    authListener();
+  }, [])
+
   return (
     <div className="App">
-
+      {user ? (
+        <Hero handleLogout={handleLogout}/>
+      ) : (
+        <Login email={email} setEmail={setEmail} 
+          setPassword={setPassword} 
+          handleLogin={handleLogin} handleSignup={handleSignup} 
+          hasAccount={hasAccount} setHasAccount={setHasAccount} 
+          emailError={emailError} passwordError={passwordError}
+      />
+      )}
     </div>
   );
 }
