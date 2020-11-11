@@ -2,7 +2,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Nunito", sans-serif;
 }
 
 /* Login Page */
@@ -117,6 +116,7 @@ button {
     rgba(52, 188, 241, 0.9) 59%,
     rgba(136, 217, 255, 0.9) 100%
   );
+  margin: auto;
   width: 100%;
   height: 140px;
   display: flex;
@@ -135,6 +135,121 @@ button {
   padding: 8px 0;
   background:rgba(39, 61, 87, 0.9);
   border-radius: 2px;
+}
+
+/* Setup Hero */
+.setup-hero nav {
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgba(39, 61, 87, 0.9) 0%,
+    rgba(52, 188, 241, 0.9) 59%,
+    rgba(136, 217, 255, 0.9) 100%
+  );
+  margin: auto;
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.setup-hero img {
+  margin: auto;
+  width: 120px;
+  align-content: center;
+}
+
+/* Setup Page */
+.setup-container {
+  padding: 40px;
+  margin: auto;
+  width: 100%;
+  width: 90%;
+  height: auto;
+  background: white;
+  box-shadow: 0 50px 70px -30px rgba(0, 0, 0, 0.8);
+  border: none;
+}
+
+.setup-container h1 {
+  font-size: 40px;
+  font-family: "Open Sans";
+  font-weight: bold;
+  text-align: center; 
+  margin-bottom: 30px;
+}
+
+.setup-container button {
+  width: 100%;
+  background: rgb(35, 143, 185);
+}
+
+.setup-container button:hover {
+  background: rgb(26, 117, 153);
+}
+
+.setup-container label {
+  font-size: 25px;
+  font-weight: 600;
+  font-family: "Open Sans";
+}
+
+#setup-underline {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 20px;
+  border: none;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.239);
+}
+
+.photo-container {
+  margin-bottom: 20px;
+}
+
+.name-container, .birth-date-container, .gender-container, 
+.weight-container, .experience-container, .goal-container {
+  margin-bottom: 20px;
+}
+
+#photo-input, #name-input, #birth-date-input, #weight-input {
+  margin-top: 5px;
+  width: 100%;
+  height: 35px;
+  font-size: 15px;
+}
+
+#gender-input, #experience-input, #goal-input {
+  border: none;
+  font-size: 20px;
+}
+
+#gender-input p, #experience-input p, #goal-input p {
+  padding-top: 10px;
+  display: inline-block;
+  padding-left: 20px;
+}
+
+.choose-photo {
+  margin-top: 10px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+#file-label {
+  font-family: "Open Sans";
+  font-size: 18px;
+  color: white;
+  background: rgb(26, 117, 153);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 /* Profile Page */

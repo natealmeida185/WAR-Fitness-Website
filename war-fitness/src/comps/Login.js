@@ -17,13 +17,13 @@ const Login = (props) => {
                     <h1>WORKOUT A ROUTINE</h1>
                 </div>
 
-                <label>Email Address</label>
+                <label>Email Address:</label>
                 <input type="text" autoFocus required value={email} 
                 onChange={(e) => setEmail(e.target.value)}
                 />
                 <p className="errorMsg">{emailError}</p>
 
-                <label>Password</label>
+                <label>Password:</label>
                 <input type="password"required value={password} 
                 onChange={(e) => setPassword(e.target.value)}
                 />

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import fire from './firebase//fire';
+import fire from './firebase/fire';
 import Login from './comps/Login';
 import Profile from './comps/Profile';
 import Setup from './comps/Setup';
 import Hero from './comps/Hero';
+import SetupHero from './comps/SetupHero';
 import './App.css';
 
 const App = () => {
@@ -97,6 +98,7 @@ const App = () => {
   if (hasSetup == true) {
     return (
       <div className="setup">
+        <SetupHero />
         <Setup />
       </div>
     )
