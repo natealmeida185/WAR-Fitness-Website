@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
-import fire from '../fire';
-import Login from '../Login';
-import Hero from '../Hero';
+import fire from './firebase//fire';
+import Login from './comps/Login';
+import Profile from './comps/Profile';
+import Setup from './comps/Setup';
+import Hero from './comps/Hero';
 import './App.css';
 
 const App = () => {
@@ -11,6 +13,8 @@ const App = () => {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [hasAccount, setHasAccount] = useState(false);
+  const [hasSetup, setHasSetup] = useState(false);
+  const [isLoggedIn, setisLoggedIn] = useState(false);
 
   const clearInputs = () => {
     setEmail("");
@@ -39,6 +43,7 @@ const App = () => {
             break;
         }
       });
+      setisLoggedIn(true);
   };
 
   const handleSignup = () => {
@@ -57,8 +62,9 @@ const App = () => {
             break;
         }
       });
+      setHasSetup(true);
   };
-  
+
   const handleLogout = () => {
     fire.auth().signOut();
   }
@@ -78,19 +84,31 @@ const App = () => {
   useEffect(() => {
     authListener();
   }, [])
+  
+  if (isLoggedIn == true && user) {
+    return (
+      <div className="profile-section">
+        <Hero handleLogout={handleLogout}/>
+        <Profile />
+      </div>
+    )
+  }
+
+  if (hasSetup == true) {
+    return (
+      <div className="setup">
+        <Setup />
+      </div>
+    )
+  }
 
   return (
     <div className="App">
-      {user ? (
-        <Hero handleLogout={handleLogout}/>
-      ) : (
-        <Login email={email} setEmail={setEmail} 
-          setPassword={setPassword} 
-          handleLogin={handleLogin} handleSignup={handleSignup} 
-          hasAccount={hasAccount} setHasAccount={setHasAccount} 
-          emailError={emailError} passwordError={passwordError}
-      />
-      )}
+        <Login email={email} setEmail={setEmail} setPassword={setPassword} 
+        handleLogin={handleLogin} handleSignup={handleSignup}
+        hasAccount={hasAccount} setHasAccount={setHasAccount}
+        emailError={emailError} passwordError={passwordError}
+        />
     </div>
   );
 }
