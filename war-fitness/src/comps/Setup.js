@@ -1,10 +1,20 @@
 import React, { useState } from 'react';
 import { db } from '../firebase/fire';
+import { fire } from '../firebase/fire';
 import Profile from './Profile';
 import Hero from './Hero';
 
 const Setup = () => {
-    const [usersPhoto, setUsersPhoto] = useState([]);
+
+    const handlePhoto = async(e) => {
+        const file = e.target.files[0]
+        const storageRef = fire.storage().ref()
+        const fileRef = storageRef.child(file.name)
+        await fileRef.put(file)
+        setFileURL(await fileRef.getDownloadURL())
+    }
+
+    const [fileURL, setFileURL] = useState(null);
     const [usersName, setUsersName] = useState('');
     const [usersAge, setUsersAge] = useState('');
     const [usersWeight, setUsersWeight] = useState('');
@@ -16,7 +26,7 @@ const Setup = () => {
     const handleSetup = (e) => {
         e.preventDefault();
         db.collection('user-profiles').add({
-            usersPhoto: usersPhoto,
+            usersPhoto: fileURL,
             usersName: usersName,
             usersAge: usersAge,
             usersWeight: usersWeight,
@@ -47,8 +57,7 @@ const Setup = () => {
                     <div className="photo-container">
                         <label>Profile Image<span id="required">*</span></label>
                         <br/>
-                        <input type="file" accept="image/*" id="photo-input" id="file" required value={usersPhoto}
-                        onChange={(e) => setUsersPhoto(e.target.value)}/>
+                        <input type="file" accept="image/*" id="photo-input" id="file" required onChange={handlePhoto}/>
                         <div>
                             <label for="file" id="file-label">
                                 Upload a Photo
