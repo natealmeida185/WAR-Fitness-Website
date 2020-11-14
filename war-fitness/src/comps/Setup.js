@@ -45,7 +45,7 @@ const Setup = () => {
             <hr id="setup-underline"/>
                 <form onSubmit={handleSetup}>
                     <div className="photo-container">
-                        <label>Profile Image</label>
+                        <label>Profile Image<span id="required">*</span></label>
                         <br/>
                         <input type="file" accept="image/*" id="photo-input" id="file" required value={usersPhoto}
                         onChange={(e) => setUsersPhoto(e.target.value)}/>
@@ -57,21 +57,21 @@ const Setup = () => {
                     </div>
 
                     <div className="name-container">
-                        <label>Full Name</label>
+                        <label>Full Name<span id="required">*</span></label>
                         <br/>
                         <input type="text" id="name-input" required value={usersName}
                         onChange={(e) => setUsersName(e.target.value)}/>
                     </div>
 
                     <div className="birth-date-container">
-                        <label>Birth Date</label>
+                        <label>Birth Date<span id="required">*</span></label>
                         <br/>
                         <input type="date" id="birth-date-input" required value={usersAge}
                         onChange={(e) => setUsersAge(e.target.value)}/>
                     </div>
 
                     <div className="gender-container">
-                        <label>Preferred Gender</label>
+                        <label>Preferred Gender<span id="required">*</span></label>
                         <br/>
                         <select id="gender-input" required value={usersGender} onChange={(e) => setUsersGender(e.target.value)}>
                             <option name="gender" value="Male">Male</option>
@@ -81,14 +81,14 @@ const Setup = () => {
                     </div>
                     
                     <div className="weight-container">
-                        <label>Accurate Weight (lbs)</label>
+                        <label>Accurate Weight (lbs)<span id="required">*</span></label>
                         <br/>
                         <input type="number" id="weight-input" required value={usersWeight}
                             onChange={(e) => setUsersWeight(e.target.value)}/>
                     </div>
 
                     <div className="experience-container">
-                        <label>Fitness Experience Level</label>
+                        <label>Fitness Experience Level<span id="required">*</span></label>
                         <form id="experience-input" required value={usersExperience} onChange={(e) => setUsersExperience(e.target.value)}>
                             <input type="radio" name="experience-level"  value="Beginner"/><p>Beginner</p><br/>
                             <input type="radio" name="experience-level"  value="Intermediate"/><p>Intermediate</p><br/>
@@ -97,7 +97,7 @@ const Setup = () => {
                     </div>
 
                     <div className="goal-container">
-                        <label>Fitness Goal</label>
+                        <label>Fitness Goal<span id="required">*</span></label>
                         <form id="goal-input" required value={usersGoal} onChange={(e) => setUsersGoal(e.target.value)}>
                             <input type="radio" name="fitness-goal" value="Lose weight"/><p>Lose Weight</p><br/>
                             <input type="radio" name="fitness-goal"  value="Maintain Weight"/><p>Maintain Weight</p><br/>
