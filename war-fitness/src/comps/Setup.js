@@ -3,7 +3,7 @@ import { db } from '../firebase/fire';
 import Profile from './Profile';
 
 const Setup = () => {
-    const [usersPhoto, setUsersPhoto] = useState([]);
+    const [usersPhoto, setUsersPhoto] = useState(null);
     const [usersName, setUsersName] = useState('');
     const [usersAge, setUsersAge] = useState('');
     const [usersWeight, setUsersWeight] = useState('');
