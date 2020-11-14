@@ -31,7 +31,7 @@ const Setup = () => {
             alert(error.message);
         });
     };
-
+                    
     if (setupDone === true) {
         return (
             <Profile />
@@ -45,71 +45,64 @@ const Setup = () => {
             <hr id="setup-underline"/>
                 <form onSubmit={handleSetup}>
                     <div className="photo-container">
-                        <label>Profile Image:</label>
+                        <label>Profile Image</label>
                         <br/>
                         <input type="file" accept="image/*" id="photo-input" id="file" required value={usersPhoto}
                         onChange={(e) => setUsersPhoto(e.target.value)}/>
-                        <div className="choose-photo">
+                        <div>
                             <label for="file" id="file-label">
-                                Upload a Photo..
+                                Upload a Photo
                             </label>
                         </div>
                     </div>
-                    
+
                     <div className="name-container">
-                        <label>Full Name:</label>
+                        <label>Full Name</label>
                         <br/>
                         <input type="text" id="name-input" required value={usersName}
                         onChange={(e) => setUsersName(e.target.value)}/>
                     </div>
 
                     <div className="birth-date-container">
-                        <label>Birth Date:</label>
+                        <label>Birth Date</label>
                         <br/>
                         <input type="date" id="birth-date-input" required value={usersAge}
                         onChange={(e) => setUsersAge(e.target.value)}/>
                     </div>
 
                     <div className="gender-container">
-                        <label>Assigned Gender:</label>
+                        <label>Preferred Gender</label>
                         <br/>
-                        <fieldset id="gender-input">
-                        <input type="radio" name="gender"  value="Male" required value={usersGender}
-                            onChange={(e) => setUsersGender(e.target.value)}/><p>Male</p><br/>
-                            <input type="radio" name="gender"  value="Female" required value={usersGender}
-                            onChange={(e) => setUsersGender(e.target.value)}/><p>Female</p><br/>
-                        </fieldset>
+                        <select id="gender-input" required value={usersGender} onChange={(e) => setUsersGender(e.target.value)}>
+                            <option name="gender" value="Male">Male</option>
+                            <option name="gender" value="Female">Female</option>
+                            <option name="gender" value="Undeclared">Undeclared</option>
+                        </select>
                     </div>
                     
                     <div className="weight-container">
-                        <label>Accurate Weight (lbs):</label>
+                        <label>Accurate Weight (lbs)</label>
                         <br/>
                         <input type="number" id="weight-input" required value={usersWeight}
                             onChange={(e) => setUsersWeight(e.target.value)}/>
                     </div>
 
                     <div className="experience-container">
-                        <label>Fitness Experience Level:</label>
-                        <fieldset id="experience-input">
-                        <input type="radio" name="experience-level"  value="Beginner" required value={usersExperience}
-                            onChange={(e) => setUsersExperience(e.target.value)}/><p>Beginner</p><br/>
-                            <input type="radio" name="experience-level"  value="Intermediate" required value={usersExperience}
-                            onChange={(e) => setUsersExperience(e.target.value)}/><p>Intermediate</p><br/>
-                            <input type="radio" name="experience-level"  value="Experienced" required value={usersExperience}
-                            onChange={(e) => setUsersExperience(e.target.value)}/><p>Experienced</p><br/>
-                        </fieldset>
+                        <label>Fitness Experience Level</label>
+                        <form id="experience-input" required value={usersExperience} onChange={(e) => setUsersExperience(e.target.value)}>
+                            <input type="radio" name="experience-level"  value="Beginner"/><p>Beginner</p><br/>
+                            <input type="radio" name="experience-level"  value="Intermediate"/><p>Intermediate</p><br/>
+                            <input type="radio" name="experience-level"  value="Experienced"/><p>Experienced</p><br/>
+                        </form>
                     </div>
 
                     <div className="goal-container">
-                        <label>Fitness Goal:</label>
-                        <fieldset id="goal-input">
-                        <input type="radio" name="fitness-goal"  value="Lose weight" value={usersGoal}
-                            onChange={(e) => setUsersGoal(e.target.value)}/><p>Lose Weight</p><br/>
-                            <input type="radio" name="fitness-goal"  value="Maintain Weight" value={usersGoal}
-                            onChange={(e) => setUsersGoal(e.target.value)}/><p>Maintain Weight</p><br/>
-                            <input type="radio" name="fitness-goal"  value="Build Muscle" value={usersGoal}
-                            onChange={(e) => setUsersGoal(e.target.value)}/><p>Build Muscle</p><br/>
-                        </fieldset>
+                        <label>Fitness Goal</label>
+                        <form id="goal-input" required value={usersGoal} onChange={(e) => setUsersGoal(e.target.value)}>
+                            <input type="radio" name="fitness-goal" value="Lose weight"/><p>Lose Weight</p><br/>
+                            <input type="radio" name="fitness-goal"  value="Maintain Weight"/><p>Maintain Weight</p><br/>
+                            <input type="radio" name="fitness-goal"  value="Build Muscle"/><p>Build Muscle</p><br/>
+                        </form>
                     </div>
                     <button type="submit">View profile</button>
                 </form>
