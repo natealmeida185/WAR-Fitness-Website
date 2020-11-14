@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import fire from './firebase/fire';
+import { fire } from './firebase/fire';
 import Login from './comps/Login';
 import Profile from './comps/Profile';
 import Setup from './comps/Setup';
@@ -86,7 +86,7 @@ const App = () => {
     authListener();
   }, [])
   
-  if (isLoggedIn == true && user) {
+  if (isLoggedIn === true && user) {
     return (
       <div className="profile-section">
         <Hero handleLogout={handleLogout}/>
@@ -95,11 +95,11 @@ const App = () => {
     )
   }
 
-  if (hasSetup == true) {
+  if (hasSetup === true) {
     return (
       <div className="setup">
         <SetupHero />
-        <Setup />
+        <Setup user={user}/>
       </div>
     )
   }

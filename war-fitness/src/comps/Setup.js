@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import fire from '../firebase/fire';
+import { db } from '../firebase/fire';
 import Profile from './Profile';
+import Hero from './Hero';
 
 const Setup = () => {
     const [usersPhoto, setUsersPhoto] = useState('');
@@ -10,12 +11,12 @@ const Setup = () => {
     const [usersExperience, setUsersExperience] = useState('');
     const [usersGoal, setUsersGoal] = useState('');
     const [usersGender, setUsersGender] = useState('');
+    const [setupDone, setSetupDone] = useState(false);
 
     const handleSetup = (e) => {
         e.preventDefault();
-
-        fire.collection('user-profiles').add({
-            usersPhoto:usersPhoto,
+        db.collection('user-profiles').add({
+            usersPhoto: usersPhoto,
             usersName: usersName,
             usersAge: usersAge,
             usersWeight: usersWeight,
@@ -24,14 +25,18 @@ const Setup = () => {
             usersGender: usersGender
         })
         .then(() => {
-            return (
-                alert("submitted successfully!")
-            )
+            setSetupDone(true)
         })
         .catch((error) => {
             alert(error.message);
         });
     };
+
+    if (setupDone === true) {
+        return (
+            <Profile />
+          )
+    }
 
     return (
         <section className="setup-section">
