@@ -74,7 +74,7 @@ const Setup = () => {
                         <label>Preferred Gender<span id="required">*</span></label>
                         <br/>
                         <select id="gender-input" required value={usersGender} onChange={(e) => setUsersGender(e.target.value)}>
-                            <option name="gender" value="Male"></option>
+                            <option name="gender" value=""></option>
                             <option name="gender" value="Male">Male</option>
                             <option name="gender" value="Female">Female</option>
                             <option name="gender" value="Undeclared">Undeclared</option>
