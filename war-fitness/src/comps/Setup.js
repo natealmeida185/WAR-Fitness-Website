@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../firebase/fire';
-import Profile from './Profile';
+import Hero from './Hero';
 
 const Setup = () => {
     const [usersPhoto, setUsersPhoto] = useState(null);
@@ -34,7 +34,7 @@ const Setup = () => {
                     
     if (setupDone === true) {
         return (
-            <Profile />
+            <Hero usersName={usersName} usersAge={usersAge}/>
           )
     }
 
