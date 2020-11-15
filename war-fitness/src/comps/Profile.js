@@ -1,11 +1,13 @@
 import React from 'react';
 import Hero from './Hero';
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <section className="profile-section">
             <div className="profile-info">
                 <h1>User Profile</h1>
+                <li>{props.usersName}</li>
+                <li>{props.usersAge}</li>
             </div>
         </section>
     )

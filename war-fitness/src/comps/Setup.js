@@ -35,7 +35,7 @@ const Setup = () => {
     if (setupDone === true) {
         return (
             <Hero />
-        )
+          )
     }
 
     return (

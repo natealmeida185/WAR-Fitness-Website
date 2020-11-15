@@ -105,14 +105,14 @@ const App = () => {
           </Switch>
         </Router>
       </>
-    );
+    )
   }
 
   if (hasSetup === true) {
     return (
-      <div className="setup">
+      <div>
         <SetupHero />
-        <Setup user={user}/>
+        <Setup />
       </div>
     )
   }
