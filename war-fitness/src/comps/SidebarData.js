@@ -47,6 +47,12 @@ const SidebarData = [
     title: 'Photo',
     path: '#',
     cName: 'nav-text'
+},
+
+{
+    title: 'Preferences',
+    path: '/preferences',
+    cName: 'nav-text'
 }
 ]
 

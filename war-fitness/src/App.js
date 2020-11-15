@@ -5,6 +5,7 @@ import Login from './comps/Login'
 import Setup from './comps/Setup';
 import Hero from './comps/Hero';
 import SetupHero from './comps/SetupHero';
+import Preferences from './comps/Preferences';
 import './App.css';
 
 const App = () => {
@@ -90,13 +91,21 @@ const App = () => {
     return (
       <>
         <Router>
-          <Hero/>
+          <Hero />
           <Switch>
-            <Route/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='#'/>
+            <Route path='/preferences' component={Preferences}/>
           </Switch>
         </Router>
       </>
-    )
+    );
   }
 
   if (hasSetup === true) {

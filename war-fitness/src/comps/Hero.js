@@ -9,7 +9,6 @@ const Hero = () => {
 
     const showSideBar = () => setSideBar(!sidebar);
     return (
-    <section>
         <>
         <div className="navbar">
             <img src="images/war.png" alt="logo"/>
@@ -36,7 +35,6 @@ const Hero = () => {
             </ul>
         </nav>  
         </>
-    </section>
     );
 }
 
