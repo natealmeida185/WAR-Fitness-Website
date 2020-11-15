@@ -1,23 +1,21 @@
 import React, {useState} from 'react';
-import Profile from './Profile';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { SidebarData } from './SidebarData';
 
-
 const Hero = () => {
-
     const[sidebar, setSideBar] = useState(false)
 
     const showSideBar = () => setSideBar(!sidebar);
     return (
     <section>
+        <>
         <div className="navbar">
             <img src="images/war.png" alt="logo"/>
-                <Link to='#' id="menu-bar1" className="menu-bars">
-                    <FaIcons.FaBars onClick={showSideBar}/>
-                </Link>
+            <Link to='#' id="menu-bar1" className="menu-bars">
+                <FaIcons.FaBars onClick={showSideBar}/>
+            </Link>
         </div>
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
             <ul className="nav-menu-items" onClick={showSideBar}>
@@ -36,8 +34,8 @@ const Hero = () => {
                     )
                 })}
             </ul>
-        </nav> 
-        <Profile />    
+        </nav>  
+        </>
     </section>
     );
 }

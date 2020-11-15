@@ -34,8 +34,8 @@ const Setup = () => {
                     
     if (setupDone === true) {
         return (
-            <Hero usersName={usersName} usersAge={usersAge}/>
-          )
+            <Hero />
+        )
     }
 
     return (

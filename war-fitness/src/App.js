@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { fire } from './firebase/fire';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Login from './comps/Login';
-import Profile from './comps/Profile';
+import Login from './comps/Login'
 import Setup from './comps/Setup';
 import Hero from './comps/Hero';
 import SetupHero from './comps/SetupHero';
@@ -93,10 +92,9 @@ const App = () => {
         <Router>
           <Hero/>
           <Switch>
-            <Route path='/' />
+            <Route/>
           </Switch>
         </Router>
-        <Profile />
       </>
     )
   }
