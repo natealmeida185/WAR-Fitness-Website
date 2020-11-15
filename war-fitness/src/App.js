@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fire } from './firebase/fire';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './comps/Login';
 import Profile from './comps/Profile';
 import Setup from './comps/Setup';
@@ -88,10 +89,15 @@ const App = () => {
   
   if (isLoggedIn === true && user) {
     return (
-      <div className="profile-section">
-        <Hero handleLogout={handleLogout}/>
+      <>
+        <Router>
+          <Hero/>
+          <Switch>
+            <Route path='/' />
+          </Switch>
+        </Router>
         <Profile />
-      </div>
+      </>
     )
   }
 

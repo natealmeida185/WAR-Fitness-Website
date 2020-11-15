@@ -6,6 +6,7 @@ const Setup = () => {
     const [usersPhoto, setUsersPhoto] = useState(null);
     const [usersName, setUsersName] = useState('');
     const [usersAge, setUsersAge] = useState('');
+    const [usersHeight, setUsersHeight] = useState('');
     const [usersWeight, setUsersWeight] = useState('');
     const [usersExperience, setUsersExperience] = useState('');
     const [usersGoal, setUsersGoal] = useState('');
@@ -80,6 +81,13 @@ const Setup = () => {
                         </select>
                     </div>
                     
+                    <div className="height-container">
+                        <label>Accurate Height (inches)<span id="required">*</span></label>
+                        <br/>
+                        <input type="number" id="height-input" required value={usersHeight}
+                            onChange={(e) => setUsersHeight(e.target.value)}/>
+                    </div>
+
                     <div className="weight-container">
                         <label>Accurate Weight (lbs)<span id="required">*</span></label>
                         <br/>
