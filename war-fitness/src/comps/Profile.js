@@ -1,5 +1,6 @@
 import React from 'react';
 import DropDown1 from './DropDown1';
+import Stopwatch from './Stopwatch';
 
 const items = [
     {
@@ -24,10 +25,11 @@ const items = [
     }
 ]
 const Profile = (props) => {
+
     return (
         <section className="profile-section">
             <div className="workout-dashboard">
-               
+                <Stopwatch/>
             </div>
             <div className="dd-container">
                 <DropDown1 title="BACK WORKOUT" items={items} multiSelect />
