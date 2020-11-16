@@ -53,6 +53,12 @@ const SidebarData = [
     title: 'Preferences',
     path: '/preferences',
     cName: 'nav-text'
+},
+
+{
+    title: 'Logout',
+    path: '/logout',
+    cName: 'nav-text'
 }
 ]
 

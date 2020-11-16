@@ -31,10 +31,10 @@ const Setup = () => {
             alert(error.message);
         });
     };
-                    
+
     if (setupDone === true) {
         return (
-            <Hero />
+            <Hero usersName={usersName} usersAge={usersAge}/>
           )
     }
 

@@ -5,7 +5,6 @@ import Login from './comps/Login'
 import Setup from './comps/Setup';
 import Hero from './comps/Hero';
 import SetupHero from './comps/SetupHero';
-import Preferences from './comps/Preferences';
 import './App.css';
 
 const App = () => {
@@ -53,6 +52,9 @@ const App = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        setHasSetup(true)
+      })
       .catch(err => {
         switch(err.code) {
           case "auth/email-already-in-use":
@@ -64,7 +66,6 @@ const App = () => {
             break;
         }
       });
-      setHasSetup(true);
   };
 
   const handleLogout = () => {
@@ -89,22 +90,7 @@ const App = () => {
   
   if (isLoggedIn === true && user) {
     return (
-      <>
-        <Router>
-          <Hero />
-          <Switch>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='#'/>
-            <Route path='/preferences' component={Preferences}/>
-          </Switch>
-        </Router>
-      </>
+      <Hero email={email} handleLogout={handleLogout}/>
     )
   }
 
