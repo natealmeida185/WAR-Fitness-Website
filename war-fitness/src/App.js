@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fire } from './firebase/fire';
 import Login from './comps/Login'
 import Setup from './comps/Setup';
-import Hero from './comps/Hero';
+import Hero from './comps/Navbar';
 import './App.css';
 
 const App = () => {

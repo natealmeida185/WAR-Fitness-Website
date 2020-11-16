@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { db } from '../firebase/fire';
-import Hero from './Hero';
+import Hero from './Navbar';
 
 const Setup = (props) => {
     const [usersPhoto, setUsersPhoto] = useState(null);
