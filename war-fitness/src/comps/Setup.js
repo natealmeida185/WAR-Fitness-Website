@@ -32,12 +32,6 @@ const Setup = () => {
         });
     };
 
-    if (setupDone === true) {
-        return (
-            <Hero usersName={usersName} usersAge={usersAge}/>
-          )
-    }
-
     return (
         <section className="setup-section">
             <div className="setup-container">
