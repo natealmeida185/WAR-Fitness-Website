@@ -3,7 +3,6 @@ import { fire } from './firebase/fire';
 import Login from './comps/Login'
 import Setup from './comps/Setup';
 import Hero from './comps/Hero';
-import SetupHero from './comps/SetupHero';
 import './App.css';
 
 const App = () => {
@@ -69,12 +68,13 @@ const App = () => {
 
   const handleLogout = () => {
     fire.auth().signOut();
+    setUser("");
+    setEmail("");
   }
 
   const authListener = () => {
     fire.auth().onAuthStateChanged(user => {
       if(user) {
-        clearInputs();
         setUser(user);
       }
       else {
@@ -87,17 +87,18 @@ const App = () => {
     authListener();
   }, [])
   
-  if (isLoggedIn === true && user) {
+  if (isLoggedIn === true) {
+    console.log({email},{user})
     return (
       <Hero email={email} handleLogout={handleLogout}/>
     )
   }
 
   if (hasSetup === true) {
+    console.log({user},{email})
     return (
       <div>
-        <SetupHero />
-        <Setup />
+        <Setup email={email}/>
       </div>
     )
   }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { db } from '../firebase/fire';
 import Hero from './Hero';
 
-const Setup = () => {
+const Setup = (props) => {
     const [usersPhoto, setUsersPhoto] = useState(null);
     const [usersName, setUsersName] = useState('');
     const [usersAge, setUsersAge] = useState('');
@@ -14,8 +14,10 @@ const Setup = () => {
     const [setupDone, setSetupDone] = useState(false);
 
     const handleSetup = (e) => {
+
         e.preventDefault();
         db.collection('user-profiles').add({
+            email: props.email,
             usersPhoto: usersPhoto,
             usersName: usersName,
             usersAge: usersAge,
@@ -31,6 +33,14 @@ const Setup = () => {
             alert(error.message);
         });
     };
+
+    if (setupDone === true) {
+        return (
+            <Hero email={props.email} usersName={usersName} usersAge={usersAge} 
+            usersHeight={usersHeight} usersWeight={usersWeight} usersExperience={usersExperience} 
+            usersGoal={usersGoal} usersGender={usersGender} handleLogout={props.handleLogout}/>
+          )
+    }
 
     return (
         <section className="setup-section">

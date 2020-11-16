@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
-import Preferences from './Preferences';
+import Profile from './Profile';
 
 const Hero = (props) => {
     const[sidebar, setSideBar] = useState(false)
@@ -19,21 +19,35 @@ const Hero = (props) => {
                     <AiIcons.AiOutlineClose className="menu-bars"/>
                 </li>
                 <div className="nav-text">
-                    <li>{props.usersPhoto}</li>
+                    <h5>Email:</h5>
                     <li>{props.email}</li>
+                
+                    <h5>Name:</h5>
                     <li>{props.usersName}</li>
-                    <li>{props.usersAge}</li>
+                    
+                    <h5>Gender:</h5>
                     <li>{props.usersGender}</li>
-                    <li>{props.usersWeight}</li>
+                    
+                    <h5>Height:</h5>
+                    <li>{props.usersHeight}<span> inches</span></li>
+
+                    <h5>Weight:</h5>
+                    <li>{props.usersWeight}<span> lbs</span></li>
+                   
+                    <h5>Experience Level:</h5>
                     <li>{props.usersExperience}</li>
+                  
+                    <h5>Fitness Goal:</h5>
                     <li>{props.usersGoal}</li>
+
                     <div className="nav-links">
-                        <li component={Preferences}>Preferences</li>
+                        <li>User Preferences</li>
                         <li onClick={props.handleLogout}>Logout</li>
                     </div>
                 </div>
             </ul>
-        </nav>  
+        </nav>
+        <Profile />  
         </>
     );
 }
