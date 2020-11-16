@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { fire } from './firebase/fire';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './comps/Login'
 import Setup from './comps/Setup';
 import Hero from './comps/Hero';
@@ -16,7 +15,7 @@ const App = () => {
   const [hasAccount, setHasAccount] = useState(false);
   const [hasSetup, setHasSetup] = useState(false);
   const [isLoggedIn, setisLoggedIn] = useState(false);
-
+  
   const clearInputs = () => {
     setEmail("");
     setPassword("");

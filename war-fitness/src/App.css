@@ -6,7 +6,7 @@
 
 /* Login Page */
 .logo-container img {
-  height: 200px;
+  height: 180px;
   margin-bottom: 20px;
   display: block;
   margin-left: auto;
@@ -43,7 +43,7 @@ button {
 }
 
 .login .loginContainer {
-  padding: 60px;
+  padding: 30px;
   margin: auto;
   width: 100%;
   max-width: 520px;

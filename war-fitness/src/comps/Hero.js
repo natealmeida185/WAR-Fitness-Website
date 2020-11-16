@@ -3,7 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import Preferences from './Preferences';
 
-const Hero = (props,{handleLogout}) => {
+const Hero = (props) => {
     const[sidebar, setSideBar] = useState(false)
 
     const showSideBar = () => setSideBar(!sidebar);
@@ -29,7 +29,7 @@ const Hero = (props,{handleLogout}) => {
                     <li>{props.usersGoal}</li>
                     <div className="nav-links">
                         <li component={Preferences}>Preferences</li>
-                        <li onClick={handleLogout}>Logout</li>
+                        <li onClick={props.handleLogout}>Logout</li>
                     </div>
                 </div>
             </ul>
