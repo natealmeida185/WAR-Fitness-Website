@@ -54,7 +54,7 @@ function DropDown1({ title, items = [], multiSelect = false }) {
                     <li className="dd-list-item" key={item.id}>
                         <button type="button" onClick={() => handleOnClick(item)}>
                             <span>{item.value}</span>
-                            <span>{isItemInSelection(item) && 'Selected'}</span>
+                            <span id="item-selected">{isItemInSelection(item) && '+'}</span>
                         </button>
                     </li> 
                     ))}

@@ -337,9 +337,9 @@ input[type="file"] {
     rgba(64, 130, 184, 0.9) 85%,
     rgba(136, 231, 255, 0.9) 100%
   );
-  border-color: rgb(43, 68, 98);
+  border: 2px;
   border-style: solid;
-  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+  border-color: rgb(43, 68, 98);
   display: flex;
   justify-content: space-between;
   cursor: pointer;
@@ -353,6 +353,7 @@ input[type="file"] {
 }
 
 .dd-header-title p {
+  font-family: "Open Sans";
   font-size: 22px;
   color: white;
   font-weight: bold;
@@ -364,4 +365,21 @@ input[type="file"] {
   cursor: pointer;
   font-size: 40px;
   height: 100%;
+}
+
+.dd-list {
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.dd-list-item {
+  font-family: "Open Sans";
+  border: 0.5px solid;
+  border-color: white;
+}
+
+#item-selected {
+  padding-right: 30px;
+  float: right;
 }
