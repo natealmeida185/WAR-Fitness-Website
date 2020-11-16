@@ -47,7 +47,7 @@ const Hero = (props) => {
                 </div>
             </ul>
         </nav>
-        <Profile />  
+        <Profile usersName={props.usersName}/>  
         </>
     );
 }
