@@ -321,5 +321,49 @@ input[type="file"] {
 .workout-dashboard h1 {
   font-size: 30px;
   text-align: center;
-  margin-top: 20px;
+  margin: 20px 0px 20px 0px;
+}
+
+.dd-wrapper {
+  display: flex;
+  min-height: 38px;
+  flex-wrap: wrap;
+}
+
+.dd-header {
+  background: radial-gradient(
+    ellipse at left bottom,
+    rgba(39, 61, 87, 0.9) 65%,
+    rgb(51, 100, 139, 0.5) 50%,
+    rgb(26, 117, 153, 0.5) 15%
+  );
+  border-color: rgb(25, 34, 46);
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 0;
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075) !important;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 100%;
+  padding: 0 20px;
+}
+
+.dd-header-title {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.dd-header-title p {
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dd-header-action p {
+  color: white;
+  cursor: pointer;
+  font-size: 40px;
+  height: 100%;
 }
