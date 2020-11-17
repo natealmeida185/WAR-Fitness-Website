@@ -357,9 +357,10 @@ input[type="file"] {
   cursor: pointer;
 }
 
-.stopwatch .stopwatch-btn-red{
+.stopwatch .stopwatch-btn-red {
+  background: rgb(41, 163, 211);
   border: 2px solid rgb(41, 163, 211);
-  color: rgb(41, 163, 211);
+  color: #fff;
 }
 
 .stopwatch .stopwatch-btn-yel{
