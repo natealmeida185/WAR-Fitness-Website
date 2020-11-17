@@ -11,7 +11,7 @@ const Setup = (props) => {
     const [usersExperience, setUsersExperience] = useState('');
     const [usersGoal, setUsersGoal] = useState('');
     const [usersGender, setUsersGender] = useState('');
-    const [setupDone, setSetupDone] = useState(true);
+    const [setupDone, setSetupDone] = useState(false);
 
     const handleSetup = (e) => {
 

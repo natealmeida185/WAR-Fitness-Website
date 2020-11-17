@@ -28,9 +28,6 @@ const Profile = (props) => {
 
     return (
         <section className="profile-section">
-            <div className="workout-dashboard">
-                <Stopwatch/>
-            </div>
             <div className="dd-container">
                 <DropDown1 title="BACK WORKOUT" items={items} multiSelect />
                 <DropDown1 title="SHOULDER WORKOUT" items={items} multiSelect />
@@ -38,6 +35,7 @@ const Profile = (props) => {
                 <DropDown1 title="ARM WORKOUT" items={items} multiSelect />
                 <DropDown1 title="AB WORKOUT" items={items} multiSelect />
             </div>
+            <Stopwatch/>
         </section>
     )
 }

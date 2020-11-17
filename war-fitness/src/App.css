@@ -319,11 +319,8 @@ input[type="file"] {
 
 /* Stopwatch */
 .main-section {
-  background: transparent;
-  max-width: 600px;
-  width: 90%;
-  height: 500px;
-  margin: 30px auto;
+  background: white;
+  width: 100%;
 }
 
 .clock-holder {
@@ -332,7 +329,6 @@ input[type="file"] {
   margin: 30px auto;
   position: relative;
 }
-
 
 .stopwatch {
   padding: 60px 0px;
