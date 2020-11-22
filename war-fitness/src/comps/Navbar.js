@@ -19,6 +19,8 @@ const Hero = (props) => {
                     <AiIcons.AiOutlineClose className="menu-bars"/>
                 </li>
                 <div className="nav-text">
+                    <img id="user-avatar" src={props.usersPhoto}></img>
+
                     <h5>Email:</h5>
                     <li>{props.email}</li>
                 

@@ -1,19 +1,15 @@
 import React, {useState} from 'react';
 
-function DropDown1({ title, items = [], multiSelect = false }) {
+function DropDown1({ title, items = []}) {
     const[open, setOpen]= useState(false);
     const[selection, setSelection]= useState([]);
     const toggle = () => setOpen(!open);
 
     function handleOnClick(item){
         if (!selection.some(current => current.id == item.id)) {
-            if(!multiSelect) {
-                setSelection([item]);
-            }
-            else if (multiSelect) {
-                setSelection([... selection, item]);
-            }
+            setSelection([item]);
         }
+
         else {
             let selectionAfterRemoval = selection;
             selectionAfterRemoval = selectionAfterRemoval.filter(
@@ -54,7 +50,7 @@ function DropDown1({ title, items = [], multiSelect = false }) {
                     <li className="dd-list-item" key={item.id}>
                         <button type="button" onClick={() => handleOnClick(item)}>
                             <span>{item.value}</span>
-                            <span id="item-selected">{isItemInSelection(item) && '+'}</span>
+                            <span id="item-selected">{isItemInSelection(item) && <img className="dd-image" src={item.image}></img>}</span>
                         </button>
                     </li> 
                     ))}

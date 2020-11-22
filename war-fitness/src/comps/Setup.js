@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { fire } from '../firebase/fire';
 import { db } from '../firebase/fire';
 import Hero from './Navbar';
 
@@ -12,13 +13,21 @@ const Setup = (props) => {
     const [usersGoal, setUsersGoal] = useState('');
     const [usersGender, setUsersGender] = useState('');
     const [setupDone, setSetupDone] = useState(false);
+    
+    const handlePhotos = async (e) => {
+        const file = e.target.files[0]
+        const storageRef = fire.storage().ref()
+        const fileRef = storageRef.child(file.name)
+        await fileRef.put(file)
+        setUsersPhoto(await fileRef.getDownloadURL())
+    }
 
     const handleSetup = (e) => {
 
         e.preventDefault();
         db.collection('user-profiles').add({
-            email: props.email,
             usersPhoto: usersPhoto,
+            email: props.email,
             usersName: usersName,
             usersAge: usersAge,
             usersWeight: usersWeight,
@@ -36,7 +45,7 @@ const Setup = (props) => {
 
     if (setupDone === true) {
         return (
-            <Hero email={props.email} usersName={usersName} usersAge={usersAge} 
+            <Hero usersPhoto={usersPhoto} email={props.email} usersName={usersName} usersAge={usersAge} 
             usersHeight={usersHeight} usersWeight={usersWeight} usersExperience={usersExperience} 
             usersGoal={usersGoal} usersGender={usersGender} handleLogout={props.handleLogout}/>
           )
@@ -51,8 +60,8 @@ const Setup = (props) => {
                     <div className="photo-container">
                         <label>Profile Image<span id="required">*</span></label>
                         <br/>
-                        <input type="file" accept="image/*" id="photo-input" id="file" required value={usersPhoto}
-                        onChange={(e) => setUsersPhoto(e.target.value)}/>
+                        <input type="file" id="photo-input" id="file" required
+                        onChange={handlePhotos}/>
                         <div>
                             <label for="file" id="file-label">
                                 Upload a Photo
