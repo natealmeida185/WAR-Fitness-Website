@@ -1,9 +1,22 @@
 import React, {useState} from 'react';
 
-function DropDown1({ title, items = []}) {
+const DropDown1 = ({title, items = [], progress, setProgress}) => {
     const[open, setOpen]= useState(false);
     const[selection, setSelection]= useState([]);
     const toggle = () => setOpen(!open);
+    const [checked, setChecked] = useState(true);
+
+    const handleProgress = () => {
+        if (!checked) {
+            setProgress(progress += 5);
+            setChecked(!checked);
+        }
+
+        else if (checked) {
+            setProgress(progress -= 5);
+            setChecked(!checked);
+        }
+    }
 
     function handleOnClick(item){
         if (!selection.some(current => current.id == item.id)) {
@@ -29,7 +42,7 @@ function DropDown1({ title, items = []}) {
     }
 
     return (
-        <div className="dd-wrapper">
+            <div className="dd-wrapper">
             <div 
                 tabIndex={0} 
                 className="dd-header" 
@@ -52,6 +65,7 @@ function DropDown1({ title, items = []}) {
                             <span>{item.value}</span>
                             <span id="item-selected">{isItemInSelection(item) && <img className="dd-image" src={item.image}></img>}</span>
                         </button>
+                        <input onChange={handleProgress} checked={checked} id="progress-check" name="checkbox" type="checkbox"></input>
                     </li> 
                     ))}
                 </ul>
