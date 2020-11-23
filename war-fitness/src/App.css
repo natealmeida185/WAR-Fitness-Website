@@ -287,8 +287,12 @@ button {
 }
 
 .name-container, .birth-date-container, .gender-container, 
-.height-container, .weight-container, .experience-container, .goal-container {
-  margin-bottom: 20px;
+.height-container, .weight-container, .goal-container {
+  margin-bottom: 30px;
+}
+
+.experience-container {
+  margin-bottom: 15px;
 }
 
 #gender-input, #photo-input, #name-input, #birth-date-input, #height-input, #weight-input {
@@ -304,7 +308,6 @@ button {
 }
 
 #gender-input p, #experience-input p, #goal-input p {
-  padding-top: 10px;
   display: inline-block;
   padding-left: 20px;
 }
@@ -459,11 +462,13 @@ input[type="file"] {
 }
 
 .dd-image {
+  float: left;
   margin-top: 15px;
   height: auto;
   width: 100%;
 }
 
 #item-selected {
+
   float: right;
 }
