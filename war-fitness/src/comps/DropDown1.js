@@ -4,7 +4,7 @@ const DropDown1 = ({title, items = [], progress, setProgress}) => {
     const[open, setOpen]= useState(false);
     const[selection, setSelection]= useState([]);
     const toggle = () => setOpen(!open);
-    const [checked, setChecked] = useState(true);
+    const [checked, setChecked] = useState(false);
 
     const handleProgress = () => {
         if (!checked) {
