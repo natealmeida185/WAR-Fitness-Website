@@ -462,13 +462,11 @@ input[type="file"] {
 }
 
 .dd-image {
-  float: left;
-  margin-top: 15px;
-  height: auto;
+  padding-top: 15px;
   width: 100%;
 }
 
 #item-selected {
-
-  float: right;
+  display: flex;
+  justify-content: center;
 }
