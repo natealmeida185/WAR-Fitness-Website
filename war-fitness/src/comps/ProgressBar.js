@@ -4,7 +4,11 @@ import Stopwatch from './Stopwatch';
 
 const ProgressBar = () => {
 
-let [progress, setProgress] = useState(0);
+const [progress, setProgress] = useState(0);
+
+const clearProgress = () => {
+    setProgress(0);
+}
 
 const items1 = [
     {
@@ -139,9 +143,10 @@ const items5 = [
     return (
         <section>
             <div className="progress-bar">
-                <label id="bar-title">FITNESS PROGRESS</label>
+                <label id="bar-title">WEEKLY PROGRESS</label>
                 <progress value={progress} max="100"></progress>   
                 <h1>{progress}%</h1>
+                <button onClick={clearProgress}>CLEAR</button>
             </div>
             <DropDown1 title="BACK WORKOUT" progress={progress} setProgress={setProgress} items={items1} multiSelect />
             <DropDown1 title="SHOULDER WORKOUT" progress={progress} setProgress={setProgress} items={items2} multiSelect />

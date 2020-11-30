@@ -5,6 +5,7 @@ const DropDown1 = ({title, items = [], progress, setProgress}) => {
     const[open, setOpen]= useState(false);
     const[selection, setSelection]= useState([]);
     const toggle = () => setOpen(!open);
+    let view = false;
 
     function handleOnClick(item){
         if (!selection.some(current => current.id == item.id)) {
@@ -22,6 +23,7 @@ const DropDown1 = ({title, items = [], progress, setProgress}) => {
 
     function isItemInSelection(item) {
         if (selection.some(current => current.id == item.id)) {
+            view = true;
             return true;
         }
         else {
@@ -30,7 +32,7 @@ const DropDown1 = ({title, items = [], progress, setProgress}) => {
     }
 
     return (
-            <div className="dd-wrapper">
+        <div className="dd-wrapper">
             <div 
                 tabIndex={0} 
                 className="dd-header" 
@@ -53,13 +55,13 @@ const DropDown1 = ({title, items = [], progress, setProgress}) => {
                             <span>{item.value}</span>
                             <span id="item-selected">{isItemInSelection(item) && <img className="dd-image" src={item.image}></img>}</span>
                         </button>
-                        <Checkbox progress={progress} setProgress={setProgress}/>
+                        <Checkbox view={view} progress={progress} setProgress={setProgress}/>
                     </li> 
                     ))}
                 </ul>
             )}
         </div>
-    );
+      );      
 }
 
 export default DropDown1;

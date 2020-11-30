@@ -333,21 +333,28 @@ input[type="file"] {
 /* Progress Bar */
 .progress-bar {
   margin-top: 20px;
-  margin-bottom: 15px;
   background: white;
 }
 
 .progress-bar h1 {
   color: black;
-  font-size: 25px;
+  font-size: 28px;
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 #bar-title {
   font-family: "Open Sans";
   font-weight: 700;
-  font-size: 25px;
+  font-size: 28px;
   color: black;
   background: white;
+}
+
+.progress-bar button {
+  height: 50px;
+  margin: 0;
+  padding: 0;
 }
 
 progress {
@@ -355,7 +362,7 @@ progress {
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 30px; 
+  height: 35px; 
 }
 
 progress::-webkit-progress-value {

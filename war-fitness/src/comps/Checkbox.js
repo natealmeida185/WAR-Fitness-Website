@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Checkbox = ({progress, setProgress}) => {
+const Checkbox = ({progress, setProgress, view}) => {
 
     const [checked, setChecked] = useState(false);
 
