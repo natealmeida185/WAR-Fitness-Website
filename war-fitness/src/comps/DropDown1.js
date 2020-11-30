@@ -1,22 +1,10 @@
 import React, {useState} from 'react';
+import Checkbox from './Checkbox';
 
 const DropDown1 = ({title, items = [], progress, setProgress}) => {
     const[open, setOpen]= useState(false);
     const[selection, setSelection]= useState([]);
     const toggle = () => setOpen(!open);
-    const [checked, setChecked] = useState(false);
-
-    const handleProgress = () => {
-        if (!checked) {
-            setProgress(progress += 5);
-            setChecked(!checked);
-        }
-
-        else if (checked) {
-            setProgress(progress -= 5);
-            setChecked(!checked);
-        }
-    }
 
     function handleOnClick(item){
         if (!selection.some(current => current.id == item.id)) {
@@ -65,7 +53,7 @@ const DropDown1 = ({title, items = [], progress, setProgress}) => {
                             <span>{item.value}</span>
                             <span id="item-selected">{isItemInSelection(item) && <img className="dd-image" src={item.image}></img>}</span>
                         </button>
-                        <input onChange={handleProgress} checked={checked} id="progress-check" name="checkbox" type="checkbox"></input>
+                        <Checkbox progress={progress} setProgress={setProgress}/>
                     </li> 
                     ))}
                 </ul>

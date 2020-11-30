@@ -350,14 +350,19 @@ input[type="file"] {
   background: white;
 }
 
-#bar {
+progress {
+  -webkit-appearance: none;
   display: flex;
   justify-content: center;
   width: 100%;
-  height: 30px;
+  height: 30px; 
 }
 
-#progress-check {
+progress::-webkit-progress-value {
+    background: rgb(84, 201, 255);
+}
+
+.dd-list input {
   display: flex;
   position: relative;
   margin-top: -33px;

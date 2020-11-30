@@ -140,7 +140,7 @@ const items5 = [
         <section>
             <div className="progress-bar">
                 <label id="bar-title">FITNESS PROGRESS</label>
-                <progress id="bar" value={progress} max="100"></progress>   
+                <progress value={progress} max="100"></progress>   
                 <h1>{progress}%</h1>
             </div>
             <DropDown1 title="BACK WORKOUT" progress={progress} setProgress={setProgress} items={items1} multiSelect />
