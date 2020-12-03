@@ -1,11 +1,12 @@
 import React from 'react';
-import Hero from './Hero';
+import ProgressBar from './ProgressBar';
 
 const Profile = () => {
+
     return (
         <section className="profile-section">
-            <div className="profile-info">
-                <h1>User Profile</h1>
+            <div className="dd-container">
+                <ProgressBar />
             </div>
         </section>
     )

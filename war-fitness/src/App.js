@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import fire from './firebase//fire';
-import Login from './comps/Login';
-import Profile from './comps/Profile';
+import { fire } from './firebase/fire';
+import Login from './comps/Login'
 import Setup from './comps/Setup';
-import Hero from './comps/Hero';
+import Hero from './comps/Navbar';
 import './App.css';
 
 const App = () => {
@@ -15,7 +14,7 @@ const App = () => {
   const [hasAccount, setHasAccount] = useState(false);
   const [hasSetup, setHasSetup] = useState(false);
   const [isLoggedIn, setisLoggedIn] = useState(false);
-
+  
   const clearInputs = () => {
     setEmail("");
     setPassword("");
@@ -51,6 +50,9 @@ const App = () => {
     fire
       .auth()
       .createUserWithEmailAndPassword(email, password)
+      .then(() => {
+        setHasSetup(true)
+      })
       .catch(err => {
         switch(err.code) {
           case "auth/email-already-in-use":
@@ -62,17 +64,17 @@ const App = () => {
             break;
         }
       });
-      setHasSetup(true);
   };
 
   const handleLogout = () => {
     fire.auth().signOut();
+    setUser("");
+    setEmail("");
   }
 
   const authListener = () => {
     fire.auth().onAuthStateChanged(user => {
       if(user) {
-        clearInputs();
         setUser(user);
       }
       else {
@@ -85,19 +87,18 @@ const App = () => {
     authListener();
   }, [])
   
-  if (isLoggedIn == true && user) {
+  if (isLoggedIn === true) {
+    console.log({email},{user})
     return (
-      <div className="profile-section">
-        <Hero handleLogout={handleLogout}/>
-        <Profile />
-      </div>
+      <Hero email={email} handleLogout={handleLogout}/>
     )
   }
 
-  if (hasSetup == true) {
+  if (hasSetup === true) {
+    console.log({user},{email})
     return (
-      <div className="setup">
-        <Setup />
+      <div>
+        <Setup email={email}/>
       </div>
     )
   }
